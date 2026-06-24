@@ -24,9 +24,9 @@ def main():
         # Normalisation
         X_train_scaled, X_test_scaled = normalize_data(X_train, X_test)
         
-        # Modèle
+        # Modèle avec plus d'arbres (200 au lieu de 100)
         print("Entraînement du modèle...")
-        model = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42)
+        model = RandomForestClassifier(n_estimators=200, max_depth=5, random_state=42)
         model.fit(X_train_scaled, y_train)
         
         # Évaluer
@@ -36,7 +36,7 @@ def main():
         
         # Log dans MLflow
         mlflow.log_param("model_type", "RandomForest")
-        mlflow.log_param("n_estimators", 100)
+        mlflow.log_param("n_estimators", 200)
         mlflow.log_param("max_depth", 5)
         mlflow.log_metric("accuracy", accuracy)
         
