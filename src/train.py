@@ -14,10 +14,6 @@ def main():
         df = load_data('data/sample.csv')
         print(df)
 
-                # Prétraitement optimisé mais incorrect :
-        # suppression accidentelle d'une colonne critique
-        df = df.drop(columns=["petal_width"])
-
         # Séparer X et y
         X = df.drop('target', axis=1)
         y = df['target']
